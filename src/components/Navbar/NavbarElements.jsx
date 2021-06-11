@@ -41,7 +41,7 @@ export const SiteName = styled.h2`
 export const BWrapper = styled.div`
   margin-right: ${({w}) => w ? "3%" : "1%"};
   width: ${({w}) => w ? "20%" : "15%"};
-  min-width: ${({w}) => w ? "275" : "180"}px;
+  min-width: ${({w}) => w ? "275" : "200"}px;
   display: ${({w}) => w ? "flex" : ""};
   justify-content: space-between;
   align-items: center;

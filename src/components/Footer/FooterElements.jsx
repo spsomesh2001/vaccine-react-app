@@ -4,7 +4,8 @@ export const FooterContainer = styled.div`
   height: 60px;
   width: 100%;
   background-color: var(--royal-blue-dark);
-  @media screen and (min-height: 1025px) {
+
+  @media screen and (min-height: 1000px) {
     position: absolute;
     bottom: 0;
     z-index: 999;

@@ -16,6 +16,15 @@ const AuthAdmin = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState(initialState);
 
+  const [h, setH] = useState(window.innerHeight);
+
+  const heightcal = () => {
+    setH(window.innerHeight);
+    // console.log(window.innerHeight);
+  };
+
+  window.addEventListener("resize", heightcal);
+
   useEffect(() => {
     setShowPassword(false);
     setFormData(initialState);
@@ -35,7 +44,7 @@ const AuthAdmin = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
 
   return (
-    <AuthContainer>
+    <AuthContainer h={h - 60}>
       <AuthBack src={adminAuthBg}></AuthBack>
       <AuthWrapper>
         <AuthH>Admin Login</AuthH>
