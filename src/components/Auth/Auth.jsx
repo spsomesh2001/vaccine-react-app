@@ -3,7 +3,7 @@ import Input from "./Input";
 import { Link, useHistory } from "react-router-dom";
 import { login, signup } from "../../actions/auth";
 import { useDispatch } from "react-redux";
-import { AuthBack, AuthContainer, AuthH, AuthWrapper, FormItem } from "./AuthElements";
+import { AuthBack, AuthContainer, AuthH, AuthWrapper, FormCon, FormItem } from "./AuthElements";
 import { Button } from "@material-ui/core";
 import authBg from "../../media/auth-backgd.jpg"
 
@@ -16,6 +16,15 @@ const AuthMy = ({ type }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState(initialState);
+
+  const [h, setH] = useState(window.innerHeight);
+
+  const heightcal = () => {
+    setH(window.innerHeight);
+    // console.log(window.innerHeight);
+  };
+
+  window.addEventListener("resize", heightcal);
 
   useEffect(() => {
     if (type === "login") {
@@ -52,11 +61,11 @@ const AuthMy = ({ type }) => {
   };
 
   return (
-    <AuthContainer>
+    <AuthContainer h={h - 60}>
       <AuthBack src={authBg}></AuthBack>
       <AuthWrapper>
         <AuthH>{isSignUp ? "Sign Up" : "Login"}</AuthH>
-        <form onSubmit={handleSubmit}>
+        <FormCon onSubmit={handleSubmit}>
           <FormItem>
             <Input
               name="email"
@@ -109,7 +118,7 @@ const AuthMy = ({ type }) => {
               </h5>
             )}
           </FormItem>
-        </form>
+        </FormCon>
       </AuthWrapper>
     </AuthContainer>
   );
